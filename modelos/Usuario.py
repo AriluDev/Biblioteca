@@ -3,5 +3,6 @@ class Usuario:
         self.__nombre = nombre
         self.__contrasena = contrasena
     
-    def get_nombre(self):
+    @property
+    def nombre(self):
         return self.__nombre
