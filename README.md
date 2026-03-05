@@ -7,7 +7,7 @@
   * María Gabriela Linares Pereira.
 
 ## Información del Proyecto:
-* **Versión de Python:** .
+* **Versión de Python:** 3.13.1.
 
 ## Guía del Sistema:
 

@@ -1,4 +1,4 @@
 from repositorio import repositorioLibro
 
-class DevolverLibro:
+class BuscarLibro:
     pass

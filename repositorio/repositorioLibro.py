@@ -1,0 +1,2 @@
+class RepositorioLibro:
+    pass
