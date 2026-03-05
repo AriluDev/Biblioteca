@@ -1,8 +1,12 @@
+import datetime
+from .libro import Libro
+from .usuario import Usuario
+
 class Prestamo:
-    def __init__(self, libro, usuario, fecha):
+    def __init__(self, libro: Libro, usuario: Usuario):
         self.__libro = libro
         self.__usuario = usuario
-        self.__fecha = fecha
+        self.__fecha = datetime.datetime.now()
     
     @property
     def libro(self):
@@ -14,4 +18,4 @@ class Prestamo:
     
     @property
     def fecha(self):
-        return self.__fecha
+        return self.__fecha.strftime("%x")

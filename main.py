@@ -1,5 +1,6 @@
 from modelos.libro import Libro
 from modelos.usuario import Usuario
+from servicios.asignarMembresia import AsignarMembresia
 
 # Creando libros
 lib1 = Libro("100 años de soledad", "Gabriel García Márquez")
@@ -21,3 +22,9 @@ usu4 = Usuario("Miguel", "987654321")
 usu5 = Usuario("María", "secreto123")
 usu6 = Usuario("Carla", "S_.12ñ")
 usu7 = Usuario("María", "123seña123")
+
+# Asignando membresias
+
+asignador = AsignarMembresia()
+asignador.asignarBasica(usu1)
+print(usu1.membresia)

@@ -1,7 +1,7 @@
-from abc import ABC, classmethod
+from abc import ABC
 
 class Membresia(ABC):
-    @property
+  
     @classmethod
     def limite_prestamos(self):
         pass
