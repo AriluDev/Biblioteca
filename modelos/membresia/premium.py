@@ -1,4 +1,6 @@
-import modelos.Membresia as Membresia
+from .membresia import Membresia
 
-class Mpremium(Membresia):
-    pass
+class Premium(Membresia):
+    @property
+    def limite_prestamos(self):
+        return 10

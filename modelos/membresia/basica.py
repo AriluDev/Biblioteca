@@ -1,4 +1,6 @@
-import modelos.Membresia as Membresia
+from .membresia import Membresia
 
-class Mbasica(Membresia):
-    pass
+class Basica(Membresia):
+    @property
+    def limite_prestamos(self):
+        return 5
