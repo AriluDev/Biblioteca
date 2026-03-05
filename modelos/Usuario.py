@@ -3,6 +3,7 @@ class Usuario:
         self.__nombre = nombre
         self.__contrasena = contrasena
         self.__membresia = None
+        self.__librosPrestados = []
     
     @property
     def nombre(self):
@@ -11,3 +12,10 @@ class Usuario:
     @property
     def membresia(self):
         return self.__membresia
+    
+    @property
+    def librosPrestados(self):
+        return self.__librosPrestados
+    
+    """ def verificarContrasena(self, contrasena):
+        return self.__contrasena == contrasena """

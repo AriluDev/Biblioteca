@@ -13,3 +13,6 @@
 
 ### Clases
 ### Métodos
+
+## Mejoras a Implementar:
+* Trabajo de excepciones.

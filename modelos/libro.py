@@ -3,7 +3,7 @@ class Libro:
         self.__titulo = titulo
         self.__autor = autor
         self.__stock = 10
-        self.__disponibilidad = True
+        self.__stockMax = 10
     
     @property
     def titulo(self):
@@ -17,6 +17,16 @@ class Libro:
     def stock(self):
         return self.__stock
     
-    @property
-    def disponibilidad(self):
-        return self.__disponibilidad
+    def prestarLibro(self, cantidad = 1):
+        if cantidad <= 0:
+            raise Exception("No se puede prestar 0 libros")
+        if cantidad > self.__stock:
+            raise Exception("No hay stock disponible")
+        self.__stock -= cantidad
+
+    def devolverLibro(self, cantidad = 1):
+        if cantidad <= 0:
+            raise Exception("No se puede devolver 0 libros")
+        if cantidad + self.__stock > self.__stockMax:
+            raise Exception("Se está devolviendo más libro del stock real.")
+        self.__stock += cantidad
