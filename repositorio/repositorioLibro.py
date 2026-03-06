@@ -36,7 +36,7 @@ class RepositorioLibro:
         raise Exception("No se encontró ningún libro con el título buscado.")
 
     def listarLibros(self):
-        pass
+        return self.__libros.copy()
 
     def listarLibrosDisponibles(self):
-        pass
+        return [libro for libro in self.__libros if libro.stock > 0]
