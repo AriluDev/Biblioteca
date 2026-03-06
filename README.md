@@ -9,10 +9,15 @@
 ## Información del Proyecto:
 * **Versión de Python:** 3.13.1.
 
-## Guía del Sistema:
+## ¿Cómo Usar el Sistema?
+1. Ejecutar el archivo main.py (dentro de la carpeta raiz) => python main.py
+
+## Documentación del Sistema:
 
 ### Clases
 ### Métodos
 
 ## Mejoras a Implementar:
 * Trabajo de excepciones.
+* Archivo main.
+* Archivo app
