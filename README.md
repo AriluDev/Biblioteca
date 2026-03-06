@@ -20,5 +20,5 @@
 ## Mejoras a Implementar:
 * Trabajo de excepciones.
 * Mejorar repositorioLibro para que puedan agregarse varios libros de golpe.
-* Archivo main.
+* Archivo main
 * Archivo app
