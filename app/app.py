@@ -26,4 +26,5 @@ usu7 = Usuario("María", "123seña123")
 # Agregando libros al repositorio
 rep = RepositorioLibro()
 rep.agregarLibro(lib1)
+print(lib1)
 print(rep.listarLibros())
