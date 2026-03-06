@@ -2,6 +2,9 @@ from modelos.libro import Libro
 from modelos.usuario import Usuario
 from repositorio.repositorioLibro import RepositorioLibro
 
+def iniciarSistema():
+    pass
+
 # Creando libros
 lib1 = Libro("100 años de soledad", "Gabriel García Márquez")
 lib2 = Libro("Drácula", "Bram Stoker")
@@ -26,5 +29,10 @@ usu7 = Usuario("María", "123seña123")
 # Agregando libros al repositorio
 rep = RepositorioLibro()
 rep.agregarLibro(lib1)
+rep.agregarLibro(lib2)
+rep.agregarLibro(lib3)
+rep.eliminarLibro(lib2)
+print(rep.buscarPorAutor("Gabriel García Márquez"))
+print(rep.buscarPorTitulo("Frankstein"))
 print(lib1)
 print(rep.listarLibros())

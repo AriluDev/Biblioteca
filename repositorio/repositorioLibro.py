@@ -5,12 +5,12 @@ class RepositorioLibro:
         self.__libros = []
 
     def agregarLibro(self, libro: Libro):
-        for libro in self.__libros:
-            if libro.titulo == libro.titulo:
+        for i in self.__libros:
+            if i.titulo == libro.titulo:
                 raise Exception("El libro ya ha sido agregado anteriormente.")
         self.__libros.append(libro)
 
-    def eliminarLibro(self, *libro: Libro):
+    def eliminarLibro(self, libro: Libro):
         for i in self.__libros:
             if i.titulo == libro.titulo:
                 self.__libros.remove(i)
