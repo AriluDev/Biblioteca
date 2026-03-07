@@ -1,4 +1,4 @@
-from modelos.libro import Libro
+from modelo.entidad.libro import Libro
 
 class RepositorioLibro:
     def __init__(self):

@@ -1,5 +1,5 @@
 import datetime
-from modelos.prestamo import Prestamo
+from modelo.entidad.prestamo import Prestamo
 
 class Devolucion:
     def __init__(self):
