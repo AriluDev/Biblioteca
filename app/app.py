@@ -1,6 +1,6 @@
-from modelos.libro import Libro
-from modelos.usuario import Usuario
-from repositorio.repositorioLibro import RepositorioLibro
+from modelo.entidad.libro import Libro
+from modelo.entidad.usuario import Usuario
+from modelo.repositorio.repositorioLibro import RepositorioLibro
 
 def iniciarSistema():
     pass
