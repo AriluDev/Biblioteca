@@ -4,7 +4,7 @@ class RepositorioLibro:
     def __init__(self):
         self.__libros = []
 
-    def agregarLibro(self, libro: Libro):
+    def agregarLibro(self, *libro: Libro):
         for i in self.__libros:
             if i.titulo == libro.titulo:
                 raise Exception("El libro ya ha sido agregado anteriormente.")
