@@ -1,6 +1,8 @@
 from modelo.entidad.libro import Libro
 from modelo.entidad.usuario import Usuario
 from modelo.repositorio.repositorioLibro import RepositorioLibro
+from modelo.entidad.prestamo import Prestamo
+from modelo.entidad.prestamoDetalle import PrestamoDetalle
 
 def iniciarSistema():
     pass
@@ -28,12 +30,11 @@ usu7 = Usuario("María", "123seña123")
 
 # Agregando libros al repositorio
 rep = RepositorioLibro()
-rep.agregarLibro(lib1)
-rep.agregarLibro(lib2)
-rep.agregarLibro(lib3)
-rep.eliminarLibro(lib2)
-# rep.agregarLibro(lib4, lib5, lib6)
-print(rep.buscarPorAutor("Gabriel García Márquez"))
-print(rep.buscarPorTitulo("Frankstein"))
-print(lib1)
-print(rep.listarLibros())
+rep.agregarLibros(lib1, lib2, lib3, lib4, lib5, lib6, lib7, lib8, lib9, lib10)
+
+# Generando prestámos
+pres1 = Prestamo(usu1)
+preDet1 = PrestamoDetalle(lib1, 2)
+preDet2 = PrestamoDetalle(lib2, 1)
+pres1.agregarDetalle(preDet1, preDet2)
+print(pres1)
