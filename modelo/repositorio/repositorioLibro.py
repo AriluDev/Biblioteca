@@ -4,18 +4,29 @@ class RepositorioLibro:
     def __init__(self):
         self.__libros = []
 
-    def agregarLibro(self, *libro: Libro):
-        for i in self.__libros:
-            if i.titulo == libro.titulo:
-                raise Exception("El libro ya ha sido agregado anteriormente.")
-        self.__libros.append(libro)
+    def agregarLibros(self, *libros: Libro):
+        coincidencias = []
 
-    def eliminarLibro(self, libro: Libro):
-        for i in self.__libros:
-            if i.titulo == libro.titulo:
-                self.__libros.remove(i)
-                return
-        raise Exception("No existe el libro que se pretende eliminar.")
+        for libro in libros:
+            if any(libro.titulo == existente.titulo for existente in self.__libros):
+                coincidencias.append(libro)
+            else:
+                self.__libros.append(libro)
+
+        if coincidencias:
+            print(f"Los siguientes libros no han sido agregados porque ya existen: {coincidencias}")
+    
+    def eliminarLibros(self, *libros: Libro):
+        coincidencias = []
+
+        for libro in libros:
+            if any(libro.titulo == existente.titulo for existente in self.__libros):
+                self.__libros.remove(libro)
+            else:
+                coincidencias.append(libro)
+        
+        if coincidencias:
+            print(f"Los siguientes libros no han sido eliminados porque no existen: {coincidencias}")
 
     def buscarPorAutor(self, autor):
         coincidencias = []
