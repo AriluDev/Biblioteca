@@ -32,8 +32,7 @@ class RepositorioUsuario:
         for usuario in self.__usuarios:
             if usuario.nombre == nombreUsuario:
                 return usuario
-            else:
-                return f"No se ha encontrado ese usuario"
+        return None
 
     def listarUsuarios(self):
         return self.__usuarios.copy()

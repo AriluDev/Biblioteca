@@ -5,6 +5,12 @@ class Usuario:
         self.__membresia = None
         self.__librosPrestados = []
     
+    def __str__(self):
+        return f"{self.__nombre} - {self.__membresia}"
+
+    def __repr__(self):
+        return self.__str__()
+    
     @property
     def nombre(self):
         return self.__nombre
@@ -17,5 +23,6 @@ class Usuario:
     def librosPrestados(self):
         return self.__librosPrestados
     
-    """ def verificarContrasena(self, contrasena):
-        return self.__contrasena == contrasena """
+    @membresia.setter
+    def membresia(self, membresia):
+        self.__membresia = membresia
