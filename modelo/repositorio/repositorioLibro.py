@@ -38,12 +38,9 @@ class RepositorioLibro:
         raise Exception("No se encontró ningún libro del autor buscado.")
 
     def buscarPorTitulo(self, titulo):
-        coincidencias = []
         for libro in self.__libros:
             if libro.titulo == titulo:
-                coincidencias.append(libro)
-        if len(coincidencias) > 0:
-            return coincidencias
+                return libro
         raise Exception("No se encontró ningún libro con el título buscado.")
 
     def listarLibros(self):

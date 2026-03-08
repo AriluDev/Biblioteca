@@ -28,16 +28,16 @@ class Libro:
     def stock(self):
         return self.__stock
     
-    def prestarLibro(self, cantidad = 1):
+    def reducirStock(self, cantidad = 1):
         if cantidad <= 0:
-            raise Exception("No se puede prestar 0 libros")
+            raise Exception("No se puede quitar 0 libros")
         if cantidad > self.__stock:
             raise Exception("No hay stock disponible")
         self.__stock -= cantidad
 
-    def devolverLibro(self, cantidad = 1):
+    def aunmentarStock(self, cantidad = 1):
         if cantidad <= 0:
-            raise Exception("No se puede devolver 0 libros")
+            raise Exception("No se puede agregar 0 libros")
         if cantidad + self.__stock > self.__stockMax:
             raise Exception("Se está devolviendo más libro del stock real.")
         self.__stock += cantidad

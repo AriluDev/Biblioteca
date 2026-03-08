@@ -14,6 +14,18 @@
 
 ## Documentación del Sistema:
 
+### Libros
+* "100 años de soledad" de Gabriel García Márquez.
+* "Drácula" de Bram Stoker.
+* "Frankstein" de Mary Shelley.
+* "La ciudad y los perros" de Mario Vargas Llosa.
+* "La tía Julia y el escribidor" de Mario Vargas Llosa.
+* "Los gremlins" de Roald Dahl.
+* "Matilda" de Roald Dahl.
+* "1984" de George Orwell.
+* "Rebelión en la granja" de George Orwell.
+* "La llamada de Cthulhu" de H. P. Lovecraft.
+
 ### Clases
 ### Métodos
 
