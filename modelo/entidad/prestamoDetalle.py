@@ -2,7 +2,7 @@ from modelo.entidad.libro import Libro
 
 class PrestamoDetalle:
     def __init__(self, libro: Libro, cantidad):
-        self.__libro = libro
+        self.__libro = libro.titulo
         self.__cantidad = cantidad
     
     def __repr__(self):
