@@ -9,5 +9,4 @@ class AsignarMembresia:
     def asignarMembresia(self, nombreUsuario, nombreMembresia):
         usuario = self.__usuarios.buscarPorNombre(nombreUsuario)
         membresia = self.__membresias.buscarPorNombre(nombreMembresia)
-
         usuario.membresia = membresia

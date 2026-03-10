@@ -5,6 +5,7 @@ from modelo.repositorio.repositorioLibro import RepositorioLibro
 from modelo.repositorio.repositorioUsuario import RepositorioUsuario
 from modelo.repositorio.repositorioMembresia import RepositorioMembresia
 from modelo.servicios.asignarMembresia import AsignarMembresia
+from modelo.servicios.prestarLibro import ServicioPrestarLibro
 
 def iniciarSistema():
     pass
@@ -45,4 +46,8 @@ asignador = AsignarMembresia(repUsu, repMem)
 asignador.asignarMembresia("Ariel", "Básica")
 asignador.asignarMembresia("Victoria" , "Premium")
 
-print(repUsu.listarUsuarios())
+# Prestamos
+prestarLibro = ServicioPrestarLibro(repUsu, repLib)
+prestarLibro.prestarLibro("Ariel", "100 años de soledad")
+print(lib1)
+print(usu1)

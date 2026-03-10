@@ -1,5 +1,7 @@
 from modelo.repositorio.repositorioUsuario import RepositorioUsuario
 from modelo.repositorio.repositorioLibro import RepositorioLibro
+from modelo.repositorio.repositorioPrestamo import RepositorioPrestamo
+from modelo.entidad.prestamo import Prestamo
 
 class ServicioPrestarLibro:
     def __init__(self, usuarios: RepositorioUsuario, libros: RepositorioLibro):
@@ -10,4 +12,9 @@ class ServicioPrestarLibro:
         usuario = self.__usuarios.buscarPorNombre(nombreUsuario)
         libro = self.__libros.buscarPorTitulo(tituloLibro)
 
-        libro.reducirStock()
+        if usuario.membresia.prestamosPermitidos > len(usuario.librosPrestados):
+            libro.reducirStock()
+            prestamo = Prestamo(usuario, libro)
+            usuario.librosPrestados.append(prestamo)
+
+        print("Préstamo exitoso.")
