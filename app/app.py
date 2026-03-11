@@ -1,15 +1,17 @@
 from modelo.entidad.libro import Libro
 from modelo.entidad.usuario import Usuario
+from modelo.entidad.membresia import Membresia
 from modelo.repositorio.repositorioLibro import RepositorioLibro
 from modelo.repositorio.repositorioUsuario import RepositorioUsuario
-from modelo.entidad.prestamo import Prestamo
-from modelo.entidad.prestamoDetalle import PrestamoDetalle
+from modelo.repositorio.repositorioMembresia import RepositorioMembresia
+from modelo.repositorio.repositorioPrestamo import RepositorioPrestamo
+from modelo.servicios.asignarMembresia import AsignarMembresia
 from modelo.servicios.prestarLibro import ServicioPrestarLibro
 
 def iniciarSistema():
     pass
 
-# Creando libros
+# Libros
 lib1 = Libro("100 años de soledad", "Gabriel García Márquez")
 lib2 = Libro("Drácula", "Bram Stoker")
 lib3 = Libro("Frankstein", "Mary Shelley")
@@ -21,6 +23,9 @@ lib8 = Libro("1984", "George Orwell")
 lib9 = Libro("Rebelión en la granja", "George Orwell")
 lib10 = Libro("La llamada de Cthulhu", "H. P. Lovecraft")
 
+repLib = RepositorioLibro()
+repLib.agregarLibros(lib1, lib2, lib3, lib4, lib5, lib6, lib7, lib8, lib9, lib10)
+
 # Creando usuarios
 usu1 = Usuario("Ariel", "contraseña123")
 usu2 = Usuario("Victoria", "contra123")
@@ -30,22 +35,24 @@ usu5 = Usuario("María", "secreto123")
 usu6 = Usuario("Carla", "S_.12ñ")
 usu7 = Usuario("Sofía", "123seña123")
 
-# Agregando usuarios al repositorio
-repUs = RepositorioUsuario()
-repUs.agregarUsuarios(usu1, usu2, usu3, usu4, usu5, usu6, usu7)
+repUsu = RepositorioUsuario()
+repUsu.agregarUsuarios(usu1, usu2, usu3, usu4, usu5, usu6, usu7)
 
-# Agregando libros al repositorio
-rep = RepositorioLibro()
-rep.agregarLibros(lib1, lib2, lib3, lib4, lib5, lib6, lib7, lib8, lib9, lib10)
+# Membresias
+basica = Membresia("Básica", 5)
+premium = Membresia("Premium", 10)
+repMem = RepositorioMembresia()
+repMem.agregarMembresias(basica, premium)
+asignador = AsignarMembresia(repUsu, repMem)
+asignador.asignarMembresia("Ariel", "Básica")
+asignador.asignarMembresia("Victoria" , "Premium")
 
-# Generando prestámos
-pres1 = Prestamo(usu1)
-preDet1 = PrestamoDetalle(lib1, 2)
-preDet2 = PrestamoDetalle(lib2, 1)
-pres1.agregarDetalle(preDet1, preDet2)
-print(pres1)
-
-# Usando el servicio
-serPres = ServicioPrestarLibro(repUs, rep)
-serPres.prestarLibro("Ariel", "100 años de soledad")
-print(rep.listarLibros())
+# Prestamos
+repPre = RepositorioPrestamo()
+prestarLibro = ServicioPrestarLibro(repUsu, repLib)
+prestarLibro.prestarLibro("Ariel", "100 años de soledad", repPre)
+prestarLibro.prestarLibro("Victoria", "100 años de soledad", repPre)
+prestarLibro.prestarLibro("Ariel", "Drácula", repPre)
+print(lib1)
+print(usu1)
+print(usu2)
