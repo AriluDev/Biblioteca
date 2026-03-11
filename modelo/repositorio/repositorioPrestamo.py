@@ -4,7 +4,7 @@ class RepositorioPrestamo:
     def __init__(self):
         self.__prestamos = []
     
-    def agregarLibros(self, *prestamos: Prestamo):
+    def agregarPrestamos(self, *prestamos: Prestamo):
         for prestamo in prestamos:
             self.__prestamos.append(prestamo)
     

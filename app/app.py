@@ -4,6 +4,7 @@ from modelo.entidad.membresia import Membresia
 from modelo.repositorio.repositorioLibro import RepositorioLibro
 from modelo.repositorio.repositorioUsuario import RepositorioUsuario
 from modelo.repositorio.repositorioMembresia import RepositorioMembresia
+from modelo.repositorio.repositorioPrestamo import RepositorioPrestamo
 from modelo.servicios.asignarMembresia import AsignarMembresia
 from modelo.servicios.prestarLibro import ServicioPrestarLibro
 
@@ -47,7 +48,11 @@ asignador.asignarMembresia("Ariel", "Básica")
 asignador.asignarMembresia("Victoria" , "Premium")
 
 # Prestamos
+repPre = RepositorioPrestamo()
 prestarLibro = ServicioPrestarLibro(repUsu, repLib)
-prestarLibro.prestarLibro("Ariel", "100 años de soledad")
+prestarLibro.prestarLibro("Ariel", "100 años de soledad", repPre)
+prestarLibro.prestarLibro("Victoria", "100 años de soledad", repPre)
+prestarLibro.prestarLibro("Ariel", "Drácula", repPre)
 print(lib1)
 print(usu1)
+print(usu2)

@@ -8,7 +8,7 @@ class ServicioPrestarLibro:
         self.__usuarios = usuarios
         self.__libros = libros
 
-    def prestarLibro(self, nombreUsuario, tituloLibro):
+    def prestarLibro(self, nombreUsuario, tituloLibro, prestamos: RepositorioPrestamo):
         usuario = self.__usuarios.buscarPorNombre(nombreUsuario)
         libro = self.__libros.buscarPorTitulo(tituloLibro)
 
@@ -16,5 +16,7 @@ class ServicioPrestarLibro:
             libro.reducirStock()
             prestamo = Prestamo(usuario, libro)
             usuario.librosPrestados.append(prestamo)
-
-        print("Préstamo exitoso.")
+            print("Préstamo exitoso.")
+            prestamos.agregarPrestamos(prestamo)
+        else:
+            print("Ya no puedes realizar más préstamos.")
