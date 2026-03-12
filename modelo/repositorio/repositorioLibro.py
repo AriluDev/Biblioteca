@@ -4,6 +4,12 @@ class RepositorioLibro:
     def __init__(self):
         self.__libros = []
 
+    def __str__(self):
+        return self.__libros
+    
+    def __repr__(self):
+        return self.__str__()
+
     def agregarLibros(self, *libros: Libro):
         coincidencias = []
 
