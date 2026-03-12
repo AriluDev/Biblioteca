@@ -19,6 +19,10 @@ class Usuario:
         return self.__nombre
     
     @property
+    def contrasena(self):
+        return self.__contrasena
+
+    @property
     def membresia(self):
         return self.__membresia
     

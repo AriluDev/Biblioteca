@@ -4,7 +4,7 @@ class Login:
     def __init__(self, usuarios: RepositorioUsuario):
         self.__usuarios = usuarios
     
-    def login(self, nombre, contrasena):
+    def accesoSistema(self, nombre, contrasena):
         usuario = self.__usuarios.buscarPorNombre(nombre)
         
         if usuario is None:
