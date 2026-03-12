@@ -8,3 +8,6 @@ class PaginaPrincipalVista:
         libros = repLib.listarLibros()
         for libro in libros:
             print(f"- {libro}")
+        print("\n¿Qué deseas hacer?")
+        print("[1] Prestar un libro.\n[2] Devolver un libro.")
+        accionUsuario = input()
