@@ -10,6 +10,7 @@ from modelo.servicios.asignarMembresia import AsignarMembresia
 from modelo.servicios.prestarLibro import ServicioPrestarLibro
 from controlador.controllerLogin import ControllerLogin
 from vista.inicioSesion import InicioSesionVista
+from vista.paginaPrincipal import PaginaPrincipalVista
 
 def iniciarSistema():
     pass
@@ -50,11 +51,15 @@ asignador = AsignarMembresia(repUsu, repMem)
 asignador.asignarMembresia("Ariel", "Básica")
 asignador.asignarMembresia("Victoria" , "Premium")
 
+# Creación de ventanas
+loginView = InicioSesionVista()
+paginaPrincipalView = PaginaPrincipalVista()
+
 # Servicio Login
 login = Login(repUsu)
 loginController = ControllerLogin(login)
-loginView = InicioSesionVista()
 usuario = loginView.mostrar(loginController)
+PaginaPrincipalVista.mostrar(repLib, usuario)
 
 # Prestamos
 repPre = RepositorioPrestamo()
