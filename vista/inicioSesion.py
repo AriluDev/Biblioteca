@@ -3,4 +3,4 @@ def inicioSesion():
     nombreUsuario = input("Usuario: ")
     contrasena = input("Contrasena: ")
 
-    
+inicioSesion()
