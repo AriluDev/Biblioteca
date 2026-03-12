@@ -5,8 +5,11 @@ from modelo.repositorio.repositorioLibro import RepositorioLibro
 from modelo.repositorio.repositorioUsuario import RepositorioUsuario
 from modelo.repositorio.repositorioMembresia import RepositorioMembresia
 from modelo.repositorio.repositorioPrestamo import RepositorioPrestamo
+from modelo.servicios.login import Login
 from modelo.servicios.asignarMembresia import AsignarMembresia
 from modelo.servicios.prestarLibro import ServicioPrestarLibro
+from controlador.controllerLogin import ControllerLogin
+from vista.inicioSesion import InicioSesionVista
 
 def iniciarSistema():
     pass
@@ -46,6 +49,12 @@ repMem.agregarMembresias(basica, premium)
 asignador = AsignarMembresia(repUsu, repMem)
 asignador.asignarMembresia("Ariel", "Básica")
 asignador.asignarMembresia("Victoria" , "Premium")
+
+# Servicio Login
+login = Login(repUsu)
+loginController = ControllerLogin(login)
+loginView = InicioSesionVista()
+usuario = loginView.mostrar(loginController)
 
 # Prestamos
 repPre = RepositorioPrestamo()
