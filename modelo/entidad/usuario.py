@@ -6,13 +6,19 @@ class Usuario:
         self.__librosPrestados = []
     
     def __str__(self):
-        return f"Nombre: {self.nombre} - Membresía: {self.membresia} - Préstamos: {self.librosPrestados}"
+        return f"Nombre: {self.nombre} - Membresía: {self.membresia} - Préstamos: {self.__imprimirLibrosPrestados()}"
 
     def __repr__(self):
         return self.__str__()
     
     def agregarPrestamo(self, prestamo: "Prestamo"):
         self.__librosPrestados.append(prestamo.libro)
+
+    def quitarPrestamo(self, libro):
+        self.__librosPrestados.remove(libro)
+
+    def __imprimirLibrosPrestados(self):
+            return ", ".join(str(libro.titulo) for libro in self.__librosPrestados)
 
     @property
     def nombre(self):
