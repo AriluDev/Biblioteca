@@ -1,7 +1,7 @@
 # SISTEMA DE GESTIÓN DE BIBLIOTECA UNIVERSITARIA
 
 ## Información del Equipo:
-* **Nombre del Equipo:** Equipo.
+* **Nombre del Equipo:** Equipo Pitón Birmana.
 * **Intergrantes:**
   * Fernando Ariel Medina Aguilar.
   * María Gabriela Linares Pereira.
@@ -10,7 +10,14 @@
 * **Versión de Python:** 3.13.1.
 
 ## ¿Cómo Usar el Sistema?
-1. Ejecutar el archivo main.py (dentro de la carpeta raiz) => python main.py
+
+### Instalación y ejecución del sistema
+1. Clonar el repositorio.
+2. Ejecutar el archivo main.py. Dentro de la carpeta raiz ejecutar el siguiente comando: python main.py
+
+### Crear y agregar un libro
+1. Dentro de #Libros en app.py instanciar la clase Libro de la siguiente manera: "nombre del objeto" = Libro("Título del libro", "Autor")
+2. Dentro del objeto repLib.agregarLibros() agregar el objeto.
 
 ## Documentación del Sistema:
 

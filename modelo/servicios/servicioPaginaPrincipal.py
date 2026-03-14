@@ -1,0 +1,5 @@
+class ServicioPaginaPrincipal:
+    def __init__(self, accion):
+        self.accion = accion
+    
+ 

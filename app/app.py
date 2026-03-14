@@ -9,8 +9,10 @@ from modelo.servicios.login import Login
 from modelo.servicios.asignarMembresia import AsignarMembresia
 from modelo.servicios.prestarLibro import ServicioPrestarLibro
 from controlador.controllerLogin import ControllerLogin
+from controlador.controllerPaginaPrincipal import ControllerPaginaPrincipal
 from vista.inicioSesion import InicioSesionVista
 from vista.paginaPrincipal import PaginaPrincipalVista
+from vista.prestamoVentana import PrestamoVentana
 
 def iniciarSistema():
     pass
@@ -30,17 +32,13 @@ lib10 = Libro("La llamada de Cthulhu", "H. P. Lovecraft")
 repLib = RepositorioLibro()
 repLib.agregarLibros(lib1, lib2, lib3, lib4, lib5, lib6, lib7, lib8, lib9, lib10)
 
-# Creando usuarios
+# Usuarios
 usu1 = Usuario("Ariel", "contraseña123")
 usu2 = Usuario("Victoria", "contra123")
-usu3 = Usuario("José", "12345679")
-usu4 = Usuario("Miguel", "987654321")
-usu5 = Usuario("María", "secreto123")
-usu6 = Usuario("Carla", "S_.12ñ")
-usu7 = Usuario("Sofía", "123seña123")
+usu3 = Usuario("María", "secreto123")
 
 repUsu = RepositorioUsuario()
-repUsu.agregarUsuarios(usu1, usu2, usu3, usu4, usu5, usu6, usu7)
+repUsu.agregarUsuarios(usu1, usu2, usu3)
 
 # Membresias
 basica = Membresia("Básica", 5)
@@ -50,16 +48,23 @@ repMem.agregarMembresias(basica, premium)
 asignador = AsignarMembresia(repUsu, repMem)
 asignador.asignarMembresia("Ariel", "Básica")
 asignador.asignarMembresia("Victoria" , "Premium")
+asignador.asignarMembresia("María" , "premium")
 
 # Creación de ventanas
 loginView = InicioSesionVista()
 paginaPrincipalView = PaginaPrincipalVista()
+prestamoView = PrestamoVentana()
 
-# Servicio Login
+#Creación de servicios
 login = Login(repUsu)
+
+# Creación de controller
 loginController = ControllerLogin(login)
+#paginaPrincipalController = ControllerPaginaPrincipal()
+
+# Ciclo de la página
 usuario = loginView.mostrar(loginController)
-PaginaPrincipalVista.mostrar(repLib, usuario)
+paginaPrincipalView.mostrar(repLib, usuario)
 
 # Prestamos
 repPre = RepositorioPrestamo()
