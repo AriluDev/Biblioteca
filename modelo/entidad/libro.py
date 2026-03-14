@@ -6,7 +6,7 @@ class Libro:
         self.__stockMax = 10
     
     def __str__(self):
-        TrueStock = f"\"{self.__titulo}\" de {self.__autor}. Stock Disponible: {self.__stock}."
+        TrueStock = f"{self.__titulo} de {self.__autor}. Stock Disponible: {self.__stock}."
         FalseStock = f"{self.__titulo} de {self.__autor}. No disponible actualmente."
         if self.__stock > 0:
             return TrueStock
