@@ -50,7 +50,7 @@ repMem.agregarMembresias(basica, premium)
 asignador = AsignarMembresia(repUsu, repMem)
 asignador.asignarMembresia("Ariel", "Básica")
 asignador.asignarMembresia("Victoria" , "Premium")
-asignador.asignarMembresia("María" , "premium")
+asignador.asignarMembresia("María" , "Premium")
 
 # Creación de ventanas
 loginView = InicioSesionVista()
