@@ -11,6 +11,11 @@ class PaginaPrincipalVista:
         libros = repLib.listarLibros()
         for libro in libros:
             print(f"- {libro}")
+        print("\nLibros prestados:")
+        if len(usuario.librosPrestados) == 0:
+            print("No se ha realizado ningún préstamo aún.")
+        else:
+            print(usuario.librosPrestados)
         print("\n¿Qué deseas hacer?")
         print("[1] Prestar un libro.\n[2] Devolver un libro.")
         accionUsuario = input()
