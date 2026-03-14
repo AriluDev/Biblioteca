@@ -1,2 +1,0 @@
-class DevolucionDetalle:
-    pass

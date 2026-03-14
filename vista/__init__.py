@@ -1,0 +1,1 @@
+from vista.limpiarPantalla import limpiar_pantalla
