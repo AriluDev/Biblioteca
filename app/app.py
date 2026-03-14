@@ -17,6 +17,7 @@ from vista.paginaPrincipal import PaginaPrincipalVista
 from vista.prestamoVentana import PrestamoVentana
 from vista.prestarlibro import prestarLibro ######
 from vista.devolverlibro import devolverLibro #####
+from controlador.controllerAccion import AccionController
 
 def iniciarSistema():
     pass
@@ -66,20 +67,13 @@ login = Login(repUsu)
 loginController = ControllerLogin(login)
 #paginaPrincipalController = ControllerPaginaPrincipal()
 
+accionController = AccionController()
+
 # Ciclo de la página
 usuario = loginView.mostrar(loginController) ###Linea que cambie abajo
+
 accion = PaginaPrincipalVista.mostrar(repLib, usuario)
-
-if accion == "1":
-    libro = prestarLibro.ventanaPrestarLibro()
-    print("Elegiste prestar el libro:", libro)
-
-elif accion == "2":
-    libro = devolverLibro.ventanaDevolverLibro()
-    print("Elegiste devolver el libro:", libro)
-
-else:
-    print("Opción no válida")
+accionController.ejecutarAccion(accion)
 
 # Prestamos
 repPre = RepositorioPrestamo()
