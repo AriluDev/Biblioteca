@@ -26,6 +26,11 @@
 * "Rebelión en la granja" de George Orwell.
 * "La llamada de Cthulhu" de H. P. Lovecraft.
 
+### Usuarios
+* Nombre: Ariel - Contraseña: contraseña123
+* Nombre: Victoria - Contraseña: contra123
+* Nombre: María - Contraseña: secreto123
+
 ### Clases
 ### Métodos
 
