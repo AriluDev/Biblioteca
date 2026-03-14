@@ -5,9 +5,11 @@ from modelo.repositorio.repositorioLibro import RepositorioLibro
 from modelo.repositorio.repositorioUsuario import RepositorioUsuario
 from modelo.repositorio.repositorioMembresia import RepositorioMembresia
 from modelo.repositorio.repositorioPrestamo import RepositorioPrestamo
+from modelo.repositorio.repositorioDevolucion import RepositorioDevolucion
 from modelo.servicios.login import Login
 from modelo.servicios.asignarMembresia import AsignarMembresia
 from modelo.servicios.prestarLibro import ServicioPrestarLibro
+from modelo.servicios.devolverLibro import DevolverLibro
 from controlador.controllerLogin import ControllerLogin
 from controlador.controllerPaginaPrincipal import ControllerPaginaPrincipal
 from vista.inicioSesion import InicioSesionVista
@@ -68,11 +70,14 @@ paginaPrincipalView.mostrar(repLib, usuario)
 
 # Prestamos
 repPre = RepositorioPrestamo()
+repDev = RepositorioDevolucion()
 prestarLibro = ServicioPrestarLibro(repUsu, repLib)
+devolverLibro = DevolverLibro(repUsu, repLib)
+
 prestarLibro.prestarLibro("Ariel", "100 años de soledad", repPre)
 prestarLibro.prestarLibro("Victoria", "100 años de soledad", repPre)
 prestarLibro.prestarLibro("Ariel", "Drácula", repPre)
-print(lib1)
 print(usu1)
-print(usu2)
-print(repPre)
+devolverLibro.devolverLibro("Ariel", "Drácula")
+print(usu1)
+print(repLib.listarLibros())

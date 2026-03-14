@@ -15,7 +15,7 @@ class ServicioPrestarLibro:
         if usuario.membresia.prestamosPermitidos > len(usuario.librosPrestados):
             libro.reducirStock()
             prestamo = Prestamo(usuario, libro)
-            usuario.librosPrestados.append(prestamo)
+            usuario.agregarPrestamo(prestamo)
             print("Préstamo exitoso.")
             prestamos.agregarPrestamos(prestamo)
         else:
