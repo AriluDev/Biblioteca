@@ -15,7 +15,7 @@ class PaginaPrincipalVista:
         if len(usuario.librosPrestados) == 0:
             print("No se ha realizado ningún préstamo aún.")
         else:
-            print(usuario.librosPrestados)
+            print(usuario.imprimirLibrosPrestados())
         print("\n¿Qué deseas hacer?")
         print("[1] Prestar un libro.\n[2] Devolver un libro.\n[3] Salir")
         accionUsuario = input()
