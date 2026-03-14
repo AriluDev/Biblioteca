@@ -15,6 +15,9 @@ from controlador.controllerPaginaPrincipal import ControllerPaginaPrincipal
 from vista.inicioSesion import InicioSesionVista
 from vista.paginaPrincipal import PaginaPrincipalVista
 from vista.prestamoVentana import PrestamoVentana
+from vista.prestarlibro import prestarLibro ######
+from vista.devolverlibro import devolverLibro #####
+from controlador.controllerAccion import AccionController
 
 def iniciarSistema():
     pass
@@ -60,19 +63,24 @@ prestamoView = PrestamoVentana()
 #Creación de servicios
 login = Login(repUsu)
 
-# Creación de controller
-loginController = ControllerLogin(login)
-#paginaPrincipalController = ControllerPaginaPrincipal()
-
-# Ciclo de la página
-usuario = loginView.mostrar(loginController)
-paginaPrincipalView.mostrar(repLib, usuario)
-
-# Prestamos
 repPre = RepositorioPrestamo()
 repDev = RepositorioDevolucion()
 prestarLibro = ServicioPrestarLibro(repUsu, repLib)
 devolverLibro = DevolverLibro(repUsu, repLib)
+
+# Creación de controller
+loginController = ControllerLogin(login)
+#paginaPrincipalController = ControllerPaginaPrincipal()
+
+accionController = AccionController(prestarLibro, devolverLibro, repPre)
+
+# Ciclo de la página
+usuario = loginView.mostrar(loginController) ###Linea que cambie abajo
+
+while True:
+
+    accion = PaginaPrincipalVista.mostrar(repLib, usuario)
+    accionController.ejecutarAccion(accion, usuario)
 
 prestarLibro.prestarLibro("Ariel", "100 años de soledad", repPre)
 prestarLibro.prestarLibro("Victoria", "100 años de soledad", repPre)
