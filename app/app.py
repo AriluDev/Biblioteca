@@ -63,8 +63,19 @@ loginController = ControllerLogin(login)
 #paginaPrincipalController = ControllerPaginaPrincipal()
 
 # Ciclo de la página
-usuario = loginView.mostrar(loginController)
-paginaPrincipalView.mostrar(repLib, usuario)
+usuario = loginView.mostrar(loginController) ###Linea que cambie abajo
+accion = PaginaPrincipalVista.mostrar(repLib, usuario)
+
+if accion == "1":
+    libro = PaginaPrincipalVista.ventanaPrestarLibro()
+    print("Elegiste prestar el libro:", libro)
+
+elif accion == "2":
+    libro = PaginaPrincipalVista.ventanaDevolverLibro()
+    print("Elegiste devolver el libro:", libro)
+
+else:
+    print("Opción no válida")
 
 # Prestamos
 repPre = RepositorioPrestamo()
