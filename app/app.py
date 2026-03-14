@@ -63,23 +63,24 @@ prestamoView = PrestamoVentana()
 #Creación de servicios
 login = Login(repUsu)
 
-# Creación de controller
-loginController = ControllerLogin(login)
-#paginaPrincipalController = ControllerPaginaPrincipal()
-
-accionController = AccionController()
-
-# Ciclo de la página
-usuario = loginView.mostrar(loginController) ###Linea que cambie abajo
-
-accion = PaginaPrincipalVista.mostrar(repLib, usuario)
-accionController.ejecutarAccion(accion)
-
-# Prestamos
 repPre = RepositorioPrestamo()
 repDev = RepositorioDevolucion()
 prestarLibro = ServicioPrestarLibro(repUsu, repLib)
 devolverLibro = DevolverLibro(repUsu, repLib)
+
+# Creación de controller
+loginController = ControllerLogin(login)
+#paginaPrincipalController = ControllerPaginaPrincipal()
+
+accionController = AccionController(prestarLibro, devolverLibro, repPre)
+
+# Ciclo de la página
+usuario = loginView.mostrar(loginController) ###Linea que cambie abajo
+
+while True:
+
+    accion = PaginaPrincipalVista.mostrar(repLib, usuario)
+    accionController.ejecutarAccion(accion, usuario)
 
 prestarLibro.prestarLibro("Ariel", "100 años de soledad", repPre)
 prestarLibro.prestarLibro("Victoria", "100 años de soledad", repPre)

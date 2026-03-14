@@ -17,7 +17,7 @@ class PaginaPrincipalVista:
         else:
             print(usuario.librosPrestados)
         print("\n¿Qué deseas hacer?")
-        print("[1] Prestar un libro.\n[2] Devolver un libro.")
+        print("[1] Prestar un libro.\n[2] Devolver un libro.\n[3] Salir")
         accionUsuario = input()
         #controller.cambiarVentana(accionUsuario)
         return accionUsuario 
