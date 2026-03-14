@@ -15,6 +15,8 @@ from controlador.controllerPaginaPrincipal import ControllerPaginaPrincipal
 from vista.inicioSesion import InicioSesionVista
 from vista.paginaPrincipal import PaginaPrincipalVista
 from vista.prestamoVentana import PrestamoVentana
+from vista.prestarlibro import prestarLibro ######
+from vista.devolverlibro import devolverLibro #####
 
 def iniciarSistema():
     pass
@@ -69,11 +71,11 @@ usuario = loginView.mostrar(loginController) ###Linea que cambie abajo
 accion = PaginaPrincipalVista.mostrar(repLib, usuario)
 
 if accion == "1":
-    libro = PaginaPrincipalVista.ventanaPrestarLibro()
+    libro = prestarLibro.ventanaPrestarLibro()
     print("Elegiste prestar el libro:", libro)
 
 elif accion == "2":
-    libro = PaginaPrincipalVista.ventanaDevolverLibro()
+    libro = devolverLibro.ventanaDevolverLibro()
     print("Elegiste devolver el libro:", libro)
 
 else:
